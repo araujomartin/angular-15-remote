@@ -1,27 +1,51 @@
-# Angular15Mfe
+# Angular 15 Microfrontend with Module Federation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+This project is a microfrontend built with **Angular 15** and uses **Module Federation** to expose modules for remote consumption. It also leverages **@angular/elements** to expose the main application as a reusable web component.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular 15**: Modern web development framework.
+- **Module Federation**: Exposes modules for remote consumption by other applications.
+- **@angular/elements**: Wraps the main app as a web component (`<angular-15-mfe>`).
+- **npm/yarn**: Uses Node.js and your preferred package manager.
 
-## Code scaffolding
+## Remote Exposure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This microfrontend exposes its application as a remote module using Module Federation. It is intended to be imported and consumed by a shell application located in a separate repository.
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Install dependencies
 
-## Running unit tests
+```bash
+npm install
+# or
+yarn install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Run the application
 
-## Running end-to-end tests
+```bash
+npm start
+# or
+yarn start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Build the application
 
-## Further help
+```bash
+npm run build
+# or
+yarn build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Consuming from Shell
+
+The shell application imports this microfrontend remotely using Module Federation. The exposed web component can be used in the shell or other host applications.
+
+## Exposed Module
+
+- `./web-component`: Exposes the Angular app as a web component (`<angular-15-mfe>`).
+
+> **Note:**  
+> In `app.module.ts`, the application is registered as a custom element using `@angular/elements`, allowing easy integration as a web component in
