@@ -11,4 +11,12 @@ declare const require: any;
 export class AppComponent {
   title = 'angular-15-mfe';
   protected ngVersion = require('../../package.json').dependencies['@angular/core'];
+
+  protected shellMessage: string | undefined;
+
+  constructor() {
+    window.addEventListener('shell', (e:any)=> {
+      this.shellMessage = e.detail;
+    })
+  }
 }
